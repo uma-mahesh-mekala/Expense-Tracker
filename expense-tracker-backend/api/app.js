@@ -16,6 +16,9 @@ const buildServer = async () => {
     .register(formbody)
     .register(AutoLoad, {
       dir: path.join(__dirname, "routes"),
+      options: {
+        prefix: "/expenses",
+      },
     });
 
   return Fastify;
@@ -24,9 +27,6 @@ const buildServer = async () => {
 buildServer()
   .then((fastifyInstance) => {
     console.log(fastifyInstance.printRoutes());
-
-    const date = new Date().toISOString().slice(0, 10);
-    console.log(date);
 
     const serverOptions = {
       port: process.env.APP_PORT,

@@ -70,11 +70,28 @@ button {
   font-size: large;
 }
 
-#error-message {
+.message {
   color: red;
   text-align: center;
   font-size: medium;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.message.error {
+  display: block;
+}
+
+.message.success {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.message.success.show {
+  opacity: 1;
+}
+
+.message.success.hide {
+  opacity: 0;
 }
 
 span {
